@@ -21,10 +21,10 @@ class Player:
 
 
 class Monster:
-    HEALTH = 200
 
     def __init__(self, name):
         self.name = name
+        self.health = 200
 
     def dialogue(self):
         print("I am the {}! I am here to crush your soul peasant!".format(self.name))
@@ -39,16 +39,16 @@ class Monster:
                 print("CRITICAL HIT!! Your armor has been damaged!")
 
     def get_health(self):
-        return self.HEALTH
+        return self.health
 
 
 
 class Mage(Player):
 
-    def fireball(self):
-        if Monster.HEALTH > 0:
+    def fireball(self, monster):
+        if monster.health > 0:
              fireball = randint(40, 60)
-             Monster.HEALTH -= fireball
+             monster.health -= fireball
              print("Fireball hits for " + str(fireball))
              if fireball == 20:
                  print("CRITICAL HIT!!")
@@ -58,6 +58,19 @@ class Mage(Player):
             print("Casting Ice Armor!")
             self.ARMOR += 50
             print("Armor:", self.ARMOR)
+
+class Warlock(Player):
+
+    def shadowbolt(self, monster):
+        if monster.health > 0:
+            shadowbolt = randint(30, 69)
+            monster.health -= shadowbolt
+            print("Shadowbolt hits for " + str(shadowbolt))
+            if shadowbolt == 69:
+                print("CRITICAL HIT!!")
+
+
+
     
 
     
