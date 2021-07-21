@@ -9,8 +9,6 @@ monster = Monster('Araxus')
 player_two = Warlock('Warlock')
 monster_two = Monster('Draxxus')
 
-print(monster.get_health())
-print(monster_two.get_health())
 
 class MainMenu:
 
