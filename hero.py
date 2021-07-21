@@ -3,21 +3,21 @@
 from random import randint
 
 class Player:
-    HEALTH = 100
     MANA = 100
     AGILITY = 5
     STRENGTH = 5
     DEXTERITY = 5
-    ARMOR = 50
     
     def __init__(self, hero):
         self.hero = hero
+        self.health = 100
+        self.armor = 50
     
     def get_health(self):
-        return self.HEALTH
+        return self.health
 
     def get_armor(self):
-        return self.ARMOR
+        return self.armor
 
 
 class Monster:
@@ -29,13 +29,13 @@ class Monster:
     def dialogue(self):
         print("I am the {}! I am here to crush your soul peasant!".format(self.name))
 
-    def attack(self):
-        if Player.HEALTH > 0:
+    def attack(self, player):
+        if player.health > 0:
             swipe = randint(19,20)
-            Player.HEALTH -= swipe
+            player.health -= swipe
             print("Swipe hits for " + str(swipe))
             if swipe == 20:
-                Player.ARMOR -= swipe
+                player.armor -= swipe
                 print("CRITICAL HIT!! Your armor has been damaged!")
 
     def get_health(self):
@@ -54,10 +54,10 @@ class Mage(Player):
                  print("CRITICAL HIT!!")
 
     def ice_armor(self):
-        if self.ARMOR < 100:
+        if self.armor < 100:
             print("Casting Ice Armor!")
-            self.ARMOR += 50
-            print("Armor:", self.ARMOR)
+            self.armor += 50
+            print("Armor:", self.armor)
 
 class Warlock(Player):
 

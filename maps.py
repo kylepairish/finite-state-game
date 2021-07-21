@@ -2,6 +2,7 @@
 from hero import Mage
 from hero import Warlock
 from hero import Monster
+
 player = Mage('Mage')
 monster = Monster('Araxus')
 
@@ -56,7 +57,7 @@ class Stonehar(MainMenu):
         if action == '1':
             player.fireball(monster)
             print("Araxus HP: ", monster.get_health(), "\n") 
-            monster.attack()
+            monster.attack(player)
             print("{} HP: ".format(player.hero), player.get_health())
             print("{} ARMOR: ".format(player.hero), player.get_armor(), "\n")
             player.ice_armor()
@@ -93,7 +94,7 @@ class Riverways(MainMenu):
         if action == '1':
             player_two.shadowbolt(monster_two)
             print("{} HP: ".format(monster_two.name), monster_two.get_health())
-            monster_two.attack()
+            monster_two.attack(player_two)
             print("{} HP: ".format(player_two.hero), player_two.get_health())
             print("{} ARMOR: ".format(player_two.hero), player_two.get_armor(), "\n")
             while monster_two.health > 50:
@@ -117,6 +118,11 @@ class Hearthglen(MainMenu):
 
     def enter(self):
         print("You have entered Hearthglen!")
+        print("Here you can find a new weapon to use to slay your enemies")
+
+
+
+
 
 class Engine:
 
